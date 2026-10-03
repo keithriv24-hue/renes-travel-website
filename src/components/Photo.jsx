@@ -11,7 +11,7 @@ export default function Photo({ name, className = "", deep = false, priority = f
   if (!img) return null;
   if (img.src) {
     return (
-      <div className={`photo ${className}`}>
+      <div className={`photo ${name === "portrait" ? "portrait-photo" : ""} ${className}`}>
         <img
           src={img.src}
           alt={img.alt}
