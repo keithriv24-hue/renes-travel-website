@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import siteConfig from "../data/siteConfig";
-import { tallyEnabled, buildInlineEmbedUrl, loadTallyScript, tallyFormUrl } from "../lib/quote";
+import { tallyEnabled, buildInlineEmbedUrl, loadTallyScript, tallyFormUrl, redirectAfterTripSubmission } from "../lib/quote";
 import { trackQuoteStart } from "../lib/analytics";
 
 /**
@@ -15,6 +15,7 @@ import { trackQuoteStart } from "../lib/analytics";
  */
 export default function QuoteEmbed() {
   const [tallyUrl, setTallyUrl] = useState(null);
+  const iframeRef = useRef(null);
   const useTally = tallyEnabled();
 
   useEffect(() => {
@@ -26,6 +27,23 @@ export default function QuoteEmbed() {
       trackQuoteStart("plan-page-inline");
     });
     return () => { cancelled = true; };
+  }, [useTally]);
+
+  // Only a successful submission from this form's own iframe can redirect.
+  useEffect(() => {
+    if (!useTally) return;
+    const onMessage = (event) => {
+      if (event.origin !== "https://tally.so" || !iframeRef.current || event.source !== iframeRef.current.contentWindow) return;
+      let data = event.data;
+      if (typeof data === "string") {
+        try { data = JSON.parse(data); } catch { return; }
+      }
+      if (data?.event === "Tally.FormSubmitted" && data.payload?.formId === siteConfig.tally.formId) {
+        redirectAfterTripSubmission();
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
   }, [useTally]);
 
   // Runs after the iframe is in the DOM, then lets embed.js auto-size it.
@@ -43,7 +61,7 @@ export default function QuoteEmbed() {
       <div>
         <div className="embed">
           {tallyUrl ? (
-            <iframe src={tallyUrl} loading="lazy" height="560" title="Plan my trip form, René’s Travel Agency" />
+            <iframe ref={iframeRef} src={tallyUrl} loading="lazy" height="560" title="Plan my trip form, René’s Travel Agency" />
           ) : (
             <div style={{ minHeight: 560, display: "grid", placeItems: "center" }} className="muted">Loading the trip form…</div>
           )}
