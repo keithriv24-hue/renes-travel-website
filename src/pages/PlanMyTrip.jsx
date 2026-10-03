@@ -15,7 +15,7 @@ export default function PlanMyTrip() {
         </div>
       </header>
       <section className="section" aria-label="Trip form and contact details">
-        <div className="wrap split">
+        <div className="wrap split split--sticky">
           <div className="side">
             <h2 className="h-card">{contactNote.heading}</h2>
             <p className="muted" style={{ marginTop: 16 }}>{contactNote.body}</p>
