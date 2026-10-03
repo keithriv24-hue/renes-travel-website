@@ -14,6 +14,11 @@
 import siteConfig from "../data/siteConfig";
 import { getMetaIdentifiers, nonEmpty } from "./tracking";
 
+export const tripThankYouPath = "/thank-you/";
+export function redirectAfterTripSubmission() {
+  if (typeof window !== "undefined") window.location.assign(tripThankYouPath);
+}
+
 export const tallyEnabled = () => Boolean(siteConfig.tally.formId);
 export const tallyFormUrl = () => `https://tally.so/r/${siteConfig.tally.formId}`;
 export const tallyEmbedBase = () =>
@@ -49,7 +54,7 @@ export async function openTallyPopup(source = "button") {
   const ids = nonEmpty({ ...(await getMetaIdentifiers()), source });
   await loadTallyScript();
   if (window.Tally && typeof window.Tally.openPopup === "function") {
-    window.Tally.openPopup(siteConfig.tally.formId, { layout: "modal", width: 700, hideTitle: true, hiddenFields: ids });
+    window.Tally.openPopup(siteConfig.tally.formId, { layout: "modal", width: 700, hideTitle: true, hiddenFields: ids, onSubmit: redirectAfterTripSubmission });
     return;
   }
   window.open(appendParams(tallyFormUrl(), ids), "_blank", "noopener,noreferrer");
