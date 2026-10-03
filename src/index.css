@@ -134,7 +134,7 @@
   .hero .sub { margin-top: 32px; max-width: 30ch; }
   .hero .ctas { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; }
   .hero-media { grid-column: 8 / span 5; grid-row: 1; position: relative; }
-  .hero-media .photo { height: clamp(460px, calc(100dvh - 210px), 700px); }
+  .hero-media .photo { height: auto; aspect-ratio: 4 / 3; }
   .sign-card { position: absolute; left: -36px; bottom: 32px; background: var(--color-paper); padding: 14px 22px 16px; box-shadow: 0 22px 44px -22px rgba(18, 26, 36, .45); transform: rotate(-2deg); }
   .sign-card .s { font-family: var(--font-script); font-size: 3.1rem; line-height: 0.9; color: var(--color-blue); }
   .sign-card .t { font-size: 0.86rem; color: var(--color-ink-2); font-weight: 600; }

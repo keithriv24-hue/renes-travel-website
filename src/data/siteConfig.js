@@ -218,19 +218,20 @@ const siteConfig = {
 
   /* ─────────────────────────────────────────────────────────────
    * PHOTOS
-   * No photos came with the old site. Each slot below renders a sized
+   * Photos are stored in public/images; stock photo sources and licenses are
+   * documented in docs/IMAGE_CREDITS.md. Each empty slot renders a sized
    * placeholder showing its brief until `src` is set. Drop the file in
    * /public/images and put its path here, e.g. "/images/rene-portrait.jpg".
    * Width/height are the intrinsic size of the file you supply (prevents
-   * layout shift). René's portrait and group photos must be real photos.
+   * layout shift). René's portrait is her supplied photo; the group slot uses scenic cruise imagery.
    * ───────────────────────────────────────────────────────────── */
   images: {
-    hero: { src: "", width: 1200, height: 1500, alt: "Ship deck rail at first light over open water", brief: "Deck rail at first light, open water, horizon low in frame" },
+    hero: { src: "/images/cruise-open-water.jpeg", width: 1600, height: 899, alt: "A large white cruise ship sailing through open blue ocean", brief: "Aerial cruise ship in open water" },
     portrait: { src: "/images/rene-portrait.jpeg", width: 1845, height: 2420, alt: "René Howell, owner of René’s Travel Agency", brief: "René, natural light, looking at the camera. Real photo from René" },
-    group: { src: "", width: 2100, height: 800, alt: "René’s travel group together on a cruise ship deck", brief: "A real René group on deck, everyone in frame" },
-    river: { src: "", width: 1500, height: 1000, alt: "A river cruise ship passing a riverside town", brief: "River ship passing a riverside town, late afternoon" },
-    postcard: { src: "", width: 1200, height: 900, alt: "Santa Cruz Beach in Torres Vedras, Portugal", brief: "Santa Cruz Beach, Torres Vedras. Ask Eugenia for her own photo" },
-    ogImage: { src: "", width: 1200, height: 630 },
+    group: { src: "/images/cruise-sunset.jpeg", width: 1800, height: 1200, alt: "Cruise ships in Miami harbor at sunset", brief: "Scenic cruise photograph; not a photo of René’s travelers" },
+    river: { src: "/images/river-cruise.jpeg", width: 1500, height: 997, alt: "A river cruise boat passing a city waterfront", brief: "River cruising beside a city waterfront" },
+    postcard: { src: "/images/santa-cruz-portugal.jpeg", width: 1200, height: 1600, alt: "Penedo do Guincho rock formation at Santa Cruz Beach, Torres Vedras, Portugal", brief: "Stock destination photograph of Santa Cruz Beach" },
+    ogImage: { src: "/images/cruise-open-water.jpeg", width: 1600, height: 899 },
   },
 
   nav: [
