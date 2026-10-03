@@ -34,8 +34,8 @@ const siteConfig = {
   },
 
   contact: {
-    phoneDisplay: "(609) 304-1336",
-    phoneTel: "+16093041336", // tel: and sms: links
+    phoneDisplay: "(609) 304-1530",
+    phoneTel: "+16093041530", // tel: and sms: links
     email: "renes.travel@comcast.net",
     // Keith confirmed René takes texts on this number.
     acceptsTexts: true,
@@ -212,7 +212,7 @@ const siteConfig = {
     },
     {
       q: "How do I get started?",
-      a: "Call or text René at (609) 304-1336, email renes.travel@comcast.net, or send the short trip form. A rough idea of where and when is plenty to get the ball rolling.",
+      a: "Call or text René at (609) 304-1530, email renes.travel@comcast.net, or send the short trip form. A rough idea of where and when is plenty to get the ball rolling.",
     },
   ],
 
