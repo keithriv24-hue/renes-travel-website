@@ -226,7 +226,7 @@ const siteConfig = {
    * ───────────────────────────────────────────────────────────── */
   images: {
     hero: { src: "", width: 1200, height: 1500, alt: "Ship deck rail at first light over open water", brief: "Deck rail at first light, open water, horizon low in frame" },
-    portrait: { src: "", width: 1200, height: 1500, alt: "René Howell, owner of René’s Travel Agency", brief: "René, natural light, looking at the camera. Real photo from René" },
+    portrait: { src: "/images/rene-portrait.jpeg", width: 1845, height: 2420, alt: "René Howell, owner of René’s Travel Agency", brief: "René, natural light, looking at the camera. Real photo from René" },
     group: { src: "", width: 2100, height: 800, alt: "René’s travel group together on a cruise ship deck", brief: "A real René group on deck, everyone in frame" },
     river: { src: "", width: 1500, height: 1000, alt: "A river cruise ship passing a riverside town", brief: "River ship passing a riverside town, late afternoon" },
     postcard: { src: "", width: 1200, height: 900, alt: "Santa Cruz Beach in Torres Vedras, Portugal", brief: "Santa Cruz Beach, Torres Vedras. Ask Eugenia for her own photo" },
