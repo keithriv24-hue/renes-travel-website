@@ -189,19 +189,6 @@ export const partners = [
     trips: ["escorted-tours"],
   },
   {
-    slug: "gogo-vacations",
-    name: "GOGO Vacations",
-    short: "GOGO Vacations",
-    type: "tours",
-    oldPath: "/gogo.php",
-    website: "https://www.gogowwv.com",
-    summary:
-      "A long-running vacation package wholesaler that works only with travel agents. Land, sea or air packages, plus a worldwide collection reaching Australia, Fiji, Thailand, Bali, Dubai, Egypt and more.",
-    highlights: ["Complete package specialists", "Perks passed along to clients"],
-    brochures: [{ label: "GOGO flyer", href: "/pdf/GOGO%20_Flyer.pdf" }],
-    trips: ["all-inclusive-resorts", "weddings-and-honeymoons", "ski-holidays", "escorted-tours"],
-  },
-  {
     slug: "worldwide-traveler",
     name: "Worldwide Traveler",
     short: "Worldwide Traveler",
