@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects. One rule per line, first match wins.
+# The legacy .php → new page rules are appended automatically at build time
+# by scripts/prerender.mjs (from src/lib/routes.js). Put any manual rules here.
