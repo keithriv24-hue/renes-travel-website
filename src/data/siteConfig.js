@@ -22,7 +22,7 @@ const siteConfig = {
     name: "René’s Travel Agency, LLC",
     shortName: "René’s Travel Agency",
     owner: "René Howell",
-    ownerTitle: "Manager",
+    ownerTitle: "Owner & Independent Travel Agent",
     tagline: "Where your dream vacation becomes a reality!",
     // From the old site: "by land, sea, air or rail".
     scope: "By land, sea, air or rail",
