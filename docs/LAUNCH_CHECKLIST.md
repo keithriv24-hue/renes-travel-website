@@ -30,6 +30,6 @@ Small fixes already made to her text: grammar (“has been such a rewarding expe
 
 ## Hosting
 
-- [ ] Connect the repo to Cloudflare Pages (build: `npm run build`, output: `dist`, env `NODE_VERSION=20`).
+- [ ] Connect the repo to Cloudflare Pages (build: `npm run build`, output: `dist`, env `NODE_VERSION=22`).
 - [ ] Point renestravelagency.com at it. The bare domain is canonical; redirect www to it, as the old site did.
 - [ ] After launch, submit `https://renestravelagency.com/sitemap.xml` in Google Search Console.

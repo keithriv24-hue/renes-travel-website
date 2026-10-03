@@ -13,7 +13,7 @@ npm run build     # production build → dist/ (every page prerendered to static
 npm run preview   # serve dist/ locally
 ```
 
-Node 20 or newer.
+Node 22 (Vite 8 needs Node 20.19+ or 22.12+; the site is built and tested on 22).
 
 ## Deploying (Cloudflare Pages, same as Haul Yeah)
 
@@ -21,7 +21,8 @@ Node 20 or newer.
 | --- | --- |
 | Build command | `npm run build` |
 | Output directory | `dist` |
-| Node version | 20+ (set `NODE_VERSION=20` if needed) |
+| Environment variable | `NODE_VERSION=22` |
+| Project | `renes-travel-website` → https://renes-travel-website.pages.dev |
 
 The build writes `dist/_redirects`. That file sends René’s old 2016 links (`/history.php`, `/royal.php` and so on) to the new pages with 301 redirects, so existing links and Google rankings carry over. Cloudflare Pages serves `dist/404.html` for any unknown URL.
 
