@@ -18,19 +18,24 @@ export default function ThankYou() {
   }, []);
   const { contact, contactNote } = siteConfig;
   return (
-    <section className="section">
+    <section className="page-head thank-you">
       <div className="wrap-narrow">
         <p className="label" style={{ color: "var(--color-blue)" }}>Request received</p>
-        <h1 className="h-page" style={{ marginTop: 16 }}>Thank you. René has your trip request.</h1>
+        <h1 className="h-page" style={{ marginTop: 16 }}>Your next adventure starts here.</h1>
         <p className="lede" style={{ marginTop: 24 }}>
-          René has your details and will get back to you about your trip. If it is urgent, call or text {contact.phoneDisplay}.
+          Thank you for sharing your travel plans. Your request has been submitted, and René will get back to you using the contact details you provided.
         </p>
+        <div className="thank-you-next" style={{ marginTop: 32 }}>
+          <h2 className="h-card">What happens next?</h2>
+          <p style={{ marginTop: 12 }}>René will review your destination, dates and budget, then help you explore options for your trip. Your inquiry starts the planning process; it does not confirm a booking.</p>
+          <p style={{ marginTop: 12 }}>Need to add a detail or speak with René sooner? Call or text {contact.phoneDisplay}.</p>
+        </div>
         <p className="signature" aria-hidden="true">René</p>
         <p className="muted">{contactNote.signoff}</p>
         <div className="link-row" style={{ marginTop: 32 }}>
           <a className="btn" href={`tel:${contact.phoneTel}`}>Call {contact.phoneDisplay}</a>
           {contact.acceptsTexts ? <a className="btn btn-ghost" href={`sms:${contact.phoneTel}`}>Text René</a> : null}
-          <Link className="tlink" to="/forms/">Client forms</Link>
+          <Link className="tlink" to="/">Back to home</Link>
         </div>
       </div>
     </section>
