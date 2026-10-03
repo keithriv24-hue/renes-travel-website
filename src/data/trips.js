@@ -64,11 +64,11 @@ export const trips = [
     h1: "All-inclusive resorts",
     seoTitle: "All-Inclusive Resort Vacations | René’s Travel Agency",
     description:
-      "All-inclusive resort vacations in the Caribbean, Mexico and Spain with Bahia Principe, Barceló and GOGO Vacations packages. Planned by René Howell.",
+      "All-inclusive resort vacations in the Caribbean, Mexico and Spain with Bahia Principe and Barceló. Planned by René Howell.",
     where: "Caribbean, Riviera Maya, Jamaica, Canary Islands",
     intro: [
       "At an all-inclusive resort, your room, your meals and many drinks and activities are covered before you arrive, so you can relax without watching every receipt.",
-      "René books resorts and packages with Bahia Principe, Barceló and GOGO Vacations, and helps you find the one that fits your budget and the way you like to vacation.",
+      "René books resorts and packages with Bahia Principe and Barceló, and helps you find the one that fits your budget and the way you like to vacation.",
     ],
     image: null,
     faqs: [0, 3, 4],
@@ -110,11 +110,11 @@ export const trips = [
     h1: "Escorted tours and vacation packages",
     seoTitle: "Escorted Tours and Vacation Packages | René’s Travel Agency",
     description:
-      "Escorted tours and complete vacation packages with Gate 1 Travel and GOGO Vacations. Planned by René Howell, René’s Travel Agency.",
+      "Escorted tours and complete vacation packages with Gate 1 Travel. Planned by René Howell, René’s Travel Agency.",
     where: "Europe and worldwide",
     intro: [
       "On an escorted tour, a guide and a set itinerary handle the logistics, so you can see a lot of a country without planning every train and hotel yourself.",
-      "René books escorted tours and complete packages with Gate 1 Travel and GOGO Vacations.",
+      "René books escorted tours and complete packages with Gate 1 Travel.",
     ],
     image: null,
     faqs: [2, 3, 4],
@@ -143,7 +143,7 @@ export const trips = [
     where: "Winter getaways",
     intro: [
       "A ski trip has a lot to line up: flights, lodging near the lifts and the right dates for the snow.",
-      "René plans ski holidays and winter getaways, including complete packages through GOGO Vacations.",
+      "René plans ski holidays and winter getaways.",
     ],
     image: null,
     faqs: [0, 3, 5],
