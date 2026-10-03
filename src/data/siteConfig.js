@@ -81,9 +81,8 @@ const siteConfig = {
     { title: "Certified", detail: "Penn Foster Career School Travel & Tourism Certificate" },
   ],
 
-  // Old site wording: "She is also partnered with European Vacations, Vax Vacations,
-  // GoGo Vacation, Gate 1 Travel, and Rail."
-  alsoPartneredWith: ["European Vacations", "Vax Vacations", "GOGO Vacations", "Gate 1 Travel", "Rail"],
+  // Additional travel partners.
+  alsoPartneredWith: ["European Vacations", "Vax Vacations", "Gate 1 Travel", "Rail"],
 
   history: {
     heading: "Our History",
@@ -200,7 +199,7 @@ const siteConfig = {
     },
     {
       q: "Which cruise lines and travel companies does René book?",
-      a: "Royal Caribbean, Carnival, Celebrity, Princess, Norwegian, Disney Cruise Line, Azamara, Cunard, AmaWaterways, Viking River Cruises, Amtrak Vacations, Gate 1 Travel, GOGO Vacations, Walt Disney World and Sports Traveler, among others.",
+      a: "Royal Caribbean, Carnival, Celebrity, Princess, Norwegian, Disney Cruise Line, Azamara, Cunard, AmaWaterways, Viking River Cruises, Amtrak Vacations, Gate 1 Travel, Walt Disney World and Sports Traveler, among others.",
     },
     {
       q: "Can I pay for my trip over time?",
