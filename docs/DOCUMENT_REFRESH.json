@@ -1,0 +1,93 @@
+[
+  {
+    "path": "public/pdf/Travel_Booking_Worksheet.pdf",
+    "title": "Travel Booking Worksheet",
+    "kind": "fillable form",
+    "pages": 3,
+    "fields": 28
+  },
+  {
+    "path": "public/pdf/Rene_Travel_Cruise_Info.pdf",
+    "title": "Cruise Registration Form",
+    "kind": "fillable form",
+    "pages": 3,
+    "fields": 14
+  },
+  {
+    "path": "public/pdf/Auth_Form-one-time-payment.pdf",
+    "title": "One-Time Credit Card Payment Authorization",
+    "kind": "fillable form",
+    "pages": 3,
+    "fields": 14
+  },
+  {
+    "path": "public/pdf/Recurring_Auth_Form.pdf",
+    "title": "Recurring Credit Card Payment Authorization",
+    "kind": "fillable form",
+    "pages": 3,
+    "fields": 16
+  },
+  {
+    "path": "public/pdf/ON_LINE_CHECK_IN_FORM.pdf",
+    "title": "Online Check-In Information",
+    "kind": "fillable form",
+    "pages": 3,
+    "fields": 28
+  },
+  {
+    "path": "public/pdf/airline.pdf",
+    "title": "Guide to Airline Fees",
+    "kind": "enlarged reading edition with original pages",
+    "pages": 6,
+    "fields": 0
+  },
+  {
+    "path": "public/pdf/gold_silv_plat.pdf",
+    "title": "Travel Guard: Gold, Silver & Platinum",
+    "kind": "enlarged reading edition with original pages",
+    "pages": 37,
+    "fields": 0
+  },
+  {
+    "path": "public/pdf/Carnival_Cruise_flyer.pdf",
+    "title": "Carnival Sunshine: 2017 Cruise Flyer",
+    "kind": "modern readable flyer with original pages",
+    "pages": 2,
+    "fields": 0
+  },
+  {
+    "path": "public/pdf/Flyer_Azamara.pdf",
+    "title": "Azamara: 2016 Book. Pay. Save.",
+    "kind": "enlarged reading edition with original pages",
+    "pages": 11,
+    "fields": 0
+  },
+  {
+    "path": "public/pdf/amtrak/top_selling_rail_vacation.pdf",
+    "title": "Top Selling Rail Vacations",
+    "kind": "modern readable flyer with original pages",
+    "pages": 4,
+    "fields": 0
+  },
+  {
+    "path": "public/pdf/amtrak/top_selling_rail_vacationB.pdf",
+    "title": "Top Selling Rail Vacations: Part B",
+    "kind": "modern readable flyer with original pages",
+    "pages": 4,
+    "fields": 0
+  },
+  {
+    "path": "public/pdf/amtrak/us_national_parks.pdf",
+    "title": "Discover the U.S. National Parks",
+    "kind": "modern readable flyer with original pages",
+    "pages": 4,
+    "fields": 0
+  },
+  {
+    "path": "public/pdf/amtrak/us_national_parksB.pdf",
+    "title": "Discover the U.S. National Parks: Part B",
+    "kind": "modern readable flyer with original pages",
+    "pages": 4,
+    "fields": 0
+  }
+]

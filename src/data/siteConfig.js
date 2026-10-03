@@ -154,15 +154,15 @@ const siteConfig = {
   // into /public/pdf before launch (see public/pdf/README.md).
   forms: [
     { group: "To book", items: [
-      { label: "Travel booking form worksheet", href: "/pdf/Travel_Booking_Worksheet.pdf", kind: "PDF" },
-      { label: "Registration form", href: "/pdf/Rene_Travel_Cruise_Info.pdf", kind: "PDF" },
+      { label: "Travel booking form worksheet", href: "/pdf/Travel_Booking_Worksheet.pdf", kind: "PDF", fillable: true },
+      { label: "Registration form", href: "/pdf/Rene_Travel_Cruise_Info.pdf", kind: "PDF", fillable: true },
     ] },
     { group: "To pay", items: [
-      { label: "Payment authorization form", href: "/pdf/Auth_Form-one-time-payment.pdf", kind: "PDF" },
-      { label: "Credit card recurring payments", href: "/pdf/Recurring_Auth_Form.pdf", kind: "PDF" },
+      { label: "Payment authorization form", href: "/pdf/Auth_Form-one-time-payment.pdf", kind: "PDF", fillable: true },
+      { label: "Credit card recurring payments", href: "/pdf/Recurring_Auth_Form.pdf", kind: "PDF", fillable: true },
     ] },
     { group: "Before you leave", items: [
-      { label: "Online check-in form", href: "/pdf/ON_LINE_CHECK_IN_FORM.pdf", kind: "PDF" },
+      { label: "Online check-in form", href: "/pdf/ON_LINE_CHECK_IN_FORM.pdf", kind: "PDF", fillable: true },
       { label: "Guide to airline fees", href: "/pdf/airline.pdf", kind: "PDF" },
       { label: "Passport info", href: "https://travel.state.gov/content/passports/en/passports.html", kind: "Link" },
     ] },
@@ -247,3 +247,4 @@ const siteConfig = {
 };
 
 export default siteConfig;
+

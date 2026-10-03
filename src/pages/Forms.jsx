@@ -10,7 +10,7 @@ export default function Forms() {
         <div className="wrap">
           <Breadcrumbs items={[{ label: "Client forms" }]} />
           <h1 className="h-page rise" style={{ maxWidth: "14ch" }}>Client forms.</h1>
-          <p className="lede rise-2">Already booked? Download what René needs from you, and check off the basics before you leave.</p>
+          <p className="lede rise-2">Already booked? Download what René needs from you, and check off the basics before you leave. The client forms can be filled in on your device or printed.</p>
         </div>
       </header>
 
@@ -42,3 +42,4 @@ export default function Forms() {
     </>
   );
 }
+

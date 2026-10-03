@@ -512,3 +512,10 @@
   max-height: 560px;
   object-fit: contain;
 }
+
+/* Download cards: title and format are separated for faster scanning. */
+.form-download-copy { min-width: 0; }
+.form-download-copy strong { display: block; font-size: 1rem; line-height: 1.35; }
+.form-download-copy small { display: block; margin-top: 5px; color: var(--color-ink-2); font-size: .8rem; font-weight: 400; line-height: 1.4; }
+.group a { padding-block: 16px; align-items: center; }
+

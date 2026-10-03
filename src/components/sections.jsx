@@ -219,7 +219,7 @@ export function FormsFolder() {
               {g.items.map((f) => (
                 <li key={f.href}>
                   <a href={f.href} target="_blank" rel="noopener noreferrer">
-                    {f.label} <span>{f.kind}</span>
+                    <div className="form-download-copy"><strong>{f.label}</strong><small>{f.kind === "PDF" ? (f.fillable ? "Fillable PDF · type or print" : "PDF · readable reference") : "Open official resource"}</small></div><span>{f.kind}</span>
                   </a>
                 </li>
               ))}
@@ -328,3 +328,4 @@ export function Handles({ items }) {
     </ul>
   );
 }
+
