@@ -226,12 +226,12 @@ const siteConfig = {
    * layout shift). René's portrait is her supplied photo; the group slot uses scenic cruise imagery.
    * ───────────────────────────────────────────────────────────── */
   images: {
-    hero: { src: "/images/cruise-open-water.jpeg", width: 1600, height: 899, alt: "A large white cruise ship sailing through open blue ocean", brief: "Aerial cruise ship in open water" },
+    hero: { src: "/images/quantum-of-the-seas.jpg", width: 1800, height: 1035, alt: "Royal Caribbean’s Quantum of the Seas sailing in open blue ocean", brief: "Royal Caribbean — Quantum of the Seas" },
     portrait: { src: "/images/rene-portrait.jpeg", width: 1845, height: 2420, alt: "René Howell, owner of René’s Travel Agency", brief: "René, natural light, looking at the camera. Real photo from René" },
-    group: { src: "/images/cruise-sunset.jpeg", width: 1800, height: 1200, alt: "Cruise ships in Miami harbor at sunset", brief: "Scenic cruise photograph; not a photo of René’s travelers" },
-    river: { src: "/images/river-cruise.jpeg", width: 1500, height: 997, alt: "A river cruise boat passing a city waterfront", brief: "River cruising beside a city waterfront" },
+    group: { src: "/images/explorer-of-the-seas.jpg", width: 1920, height: 1280, alt: "Royal Caribbean’s Explorer of the Seas pool deck and waterslides above the blue ocean", brief: "Royal Caribbean — Explorer of the Seas" },
+    river: { src: "/images/amamagna.jpg", width: 1600, height: 1341, alt: "AmaWaterways’ AmaMagna river cruise ship sailing between cliffs on the Danube", brief: "AmaWaterways — AmaMagna" },
     postcard: { src: "/images/santa-cruz-portugal.jpeg", width: 1200, height: 1600, alt: "Penedo do Guincho rock formation at Santa Cruz Beach, Torres Vedras, Portugal", brief: "Stock destination photograph of Santa Cruz Beach" },
-    ogImage: { src: "/images/cruise-open-water.jpeg", width: 1600, height: 899 },
+    ogImage: { src: "/images/quantum-of-the-seas.jpg", width: 1800, height: 1035 },
   },
 
   nav: [

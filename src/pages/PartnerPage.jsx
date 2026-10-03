@@ -6,6 +6,7 @@ import { trips } from "../data/trips";
 import Breadcrumbs from "../components/Breadcrumbs";
 import PlanTripButton from "../components/PlanTripButton";
 import { LetterBand, testimonialById } from "../components/sections";
+import Photo from "../components/Photo";
 import NotFound from "./NotFound";
 
 export default function PartnerPage() {
@@ -15,6 +16,7 @@ export default function PartnerPage() {
   const tripList = trips.filter((t) => p.trips.includes(t.slug));
   const sameType = partners.filter((x) => x.type === p.type && x.slug !== p.slug);
   const quote = p.testimonial ? testimonialById(p.testimonial) : null;
+  const shipPhoto = { "royal-caribbean": "hero", "amawaterways": "river" }[p.slug];
   const host = p.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
   return (
@@ -31,6 +33,8 @@ export default function PartnerPage() {
           </div>
         </div>
       </header>
+
+      {shipPhoto ? <section className="section tint" aria-label={`${p.short} ship photograph`}><div className="wrap"><Photo name={shipPhoto} className="partner-ship" /></div></section> : null}
 
       <section className="section" aria-labelledby="know-title">
         <div className="wrap split">

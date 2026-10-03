@@ -13,6 +13,7 @@ export default function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap">
           <div className="hero-copy">
+            <p className="label" style={{ marginBottom: 24 }}>Your next adventure starts here</p>
             <h1 id="hero-title" className="h-display rise">Bring back the <em>memories.</em></h1>
             <p className="sub lede rise-2">
               René Howell plans cruises, resorts, reunions and honeymoons by land, sea, air or rail, from first call to departure day.
@@ -23,11 +24,12 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-media">
-            <Photo name="hero" deep priority className="unveil" sizes="(min-width: 960px) 40vw, 100vw" />
+            <Photo name="hero" deep priority className="unveil" sizes="(min-width: 960px) 50vw, 100vw" />
             <div className="sign-card" aria-hidden="true">
               <p className="s">René</p>
               <p className="t">René Howell, your travel agent</p>
             </div>
+            <p className="ship-caption">Royal Caribbean · Quantum of the Seas</p>
           </div>
         </div>
       </section>

@@ -1,33 +1,19 @@
 @import "tailwindcss";
 
-/*
- * René’s Travel Agency design system
- * ─────────────────────────────────────────────────────────────
- * Merge of concept A (editorial travel magazine: Bodoni headlines, sharp
- * edges, cool porcelain ground, cobalt accent) and concept C (René’s voice:
- * portrait + signature, trip steps, forms folder, checklist, letter form).
- * C’s green and amber are replaced by A’s blue, so cobalt is the ONE accent
- * and deep blue is its dark partner for the folder and contact blocks.
- *
- * Shape: sharp corners everywhere (radius 0). Do not add rounded cards.
- * Type: Bodoni Moda for headlines only, Libre Franklin for everything else,
- *       Mrs Saint Delafield ONLY for René’s sign-off (swap for her real
- *       signature image when she supplies one).
- * ─────────────────────────────────────────────────────────────
- */
+/* Ocean blue palette, with navy feature sections and light blue reading panels. */
 
 @theme {
-  --color-ground: #F1F3F3;
-  --color-ground-2: #E3E8EB;
-  --color-paper: #FAFBFB;
-  --color-ink: #121A24;
-  --color-ink-2: #44505C;
-  --color-rule: #C3CBD0;
-  --color-blue: #1F3FBF;
-  --color-blue-hover: #172F92;
-  --color-deep: #15296B;
-  --color-on-deep: #EEF2FA;
-  --color-on-deep-2: #B9C6EA;
+  --color-ground: #CBE3F1;
+  --color-ground-2: #AED2E8;
+  --color-paper: #E3F1F8;
+  --color-ink: #092B49;
+  --color-ink-2: #254E6B;
+  --color-rule: #82ACC7;
+  --color-blue: #075D9C;
+  --color-blue-hover: #034675;
+  --color-deep: #062D50;
+  --color-on-deep: #F0F8FF;
+  --color-on-deep-2: #BFDEEF;
   --font-serif: "Bodoni Moda Variable", "Bodoni 72", Didot, Georgia, serif;
   --font-sans: "Libre Franklin Variable", "Franklin Gothic Book", "Helvetica Neue", Arial, sans-serif;
   --font-script: "Mrs Saint Delafield", "Snell Roundhand", cursive;
@@ -465,3 +451,51 @@
   .mbar a { min-height: 52px; display: flex; align-items: center; justify-content: center; font-weight: 600; text-decoration: none; }
   .mbar .plain { box-shadow: inset 0 0 0 1px var(--color-ink); }
 }
+
+/* Rich blue surfaces use local tokens so text, links and borders stay legible. */
+.hero, .groups, .partners-strip, .foot-main, .legal, .masthead, .utility, .page-head {
+  --color-ink: #F0F8FF;
+  --color-ink-2: #C5E0F0;
+  --color-rule: #47718F;
+  --color-blue: #93D8FF;
+  --color-ground: #062D50;
+  --color-paper: #104768;
+  color: var(--color-ink);
+  background: #062D50;
+}
+.utility { background: #041F38; }
+.masthead { background: #062D50; border-bottom-color: #47718F; }
+.menu-btn { color: inherit; }
+.hero { background: linear-gradient(125deg, #041F38, #06385F 65%, #075D80); padding-block: clamp(56px, 7vw, 96px); }
+.hero .wrap { align-items: center; }
+.hero-copy { grid-column: 1 / span 6; }
+.hero-media { grid-column: 7 / span 6; }
+.hero .h-display { font-size: clamp(3.2rem, 6.8vw, 6.8rem); }
+.hero-copy em { color: #93D8FF; }
+.hero .sub { max-width: 38ch; }
+.hero-media .photo { aspect-ratio: 1800 / 1035; box-shadow: 0 24px 60px #00192b80; }
+.hero .btn, .masthead .btn, .page-head .btn { background: #93D8FF; color: #062D50; }
+.hero .btn:hover, .masthead .btn:hover, .page-head .btn:hover { background: #C4EBFF; }
+.sign-card { background: #D4ECF9; --color-blue: #075D9C; --color-ink-2: #254E6B; left: 22px; bottom: -28px; }
+.ship-caption { margin-top: 14px; color: var(--color-ink-2); font-size: .8rem; text-align: right; }
+.note { background: #CBE3F1; }
+.how { background: #AED2E8; }
+.groups { background: linear-gradient(135deg, #062D50, #075D80); }
+.partners-strip { background: #104768; }
+.words, .before { background: #CBE3F1; }
+.faq { background: #AED2E8; }
+.foot-main, .legal { background: #041F38; }
+.menu-panel, .mbar { --color-ground: #062D50; --color-ink: #F0F8FF; --color-ink-2: #C5E0F0; --color-rule: #47718F; background: #062D50; color: #F0F8FF; }
+.mbar .btn, .menu-panel .btn { background: #93D8FF; color: #062D50; }
+.page-head .photo { box-shadow: 0 20px 48px #00192b60; }
+.note-portrait .photo { box-shadow: 12px 12px 0 #87B9D6; }
+@media (max-width: 960px) {
+  .hero-media .photo { aspect-ratio: 1800 / 1035; }
+  .hero-media { margin-top: 44px; }
+}
+@media (max-width: 640px) {
+  .ship-caption { margin-top: 42px; text-align: left; }
+}
+
+.partner-ship { aspect-ratio: 2 / 1; max-width: 1100px; margin-inline: auto; }
+@media (max-width: 640px) { .partner-ship { aspect-ratio: 4 / 3; } }
