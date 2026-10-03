@@ -130,7 +130,7 @@ export function buildRoutes() {
     path: "/partners/",
     title: `Cruise Lines & Travel Partners | ${BIZ}`,
     description:
-      "Royal Caribbean, Carnival, Celebrity, Princess, Norwegian, Disney, Azamara, Cunard, AmaWaterways, Viking, Amtrak Vacations, Gate 1, GOGO and more, booked by René.",
+      "Royal Caribbean, Carnival, Celebrity, Princess, Norwegian, Disney, Azamara, Cunard, AmaWaterways, Viking, Amtrak Vacations, Gate 1 and more, booked by René.",
     jsonLd: [breadcrumbs([{ name: "Partners", path: "/partners/" }])],
     sitemap: { priority: "0.7", changefreq: "monthly" },
   });
