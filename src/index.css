@@ -499,3 +499,16 @@
 
 .partner-ship { aspect-ratio: 2 / 1; max-width: 1100px; margin-inline: auto; }
 @media (max-width: 640px) { .partner-ship { aspect-ratio: 4 / 3; } }
+
+/* René’s full portrait stays visible on the About page and homepage. */
+.photo.portrait-photo {
+  aspect-ratio: auto;
+  background: transparent;
+}
+.photo.portrait-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+}
