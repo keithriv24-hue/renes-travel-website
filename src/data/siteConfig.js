@@ -29,6 +29,8 @@ const siteConfig = {
     scope: "By land, sea, air or rail",
     state: "Delaware",
     stateCode: "DE",
+    foundingYear: "2014",
+    formationState: "New Jersey",
     // The old .htaccess redirected www → bare domain, so the bare domain is canonical.
     baseUrl: "https://renestravelagency.com",
     // Fill in when René confirms it. Rendered in schema.org data only when set.
@@ -79,7 +81,7 @@ const siteConfig = {
 
   credentials: [
     { title: "CLIA", detail: "Licensed with Cruise Lines International Association (CLIA), 2016" },
-    { title: "Delaware", detail: "Based in Delaware, personally owned and operated by René Howell" },
+    { title: "Established in 2014", detail: "LLC formed in New Jersey; now operating from Delaware" },
     { title: "Certified", detail: "Penn Foster Career School Travel & Tourism Certificate" },
   ],
 
@@ -91,6 +93,7 @@ const siteConfig = {
     paragraphs: [
       "I started René’s Travel Agency for the love of travel. My travel experience began as a group leader with Liberty Travel in 2006, when I booked my first cruise on Royal Caribbean’s Explorer of the Seas for 32 people.",
       "I continued booking cruises through Liberty Travel every two years as the group leader for travelers who sailed with me faithfully over the next 10 years.",
+      "I established René’s Travel Agency, LLC in New Jersey in 2014. Today, I personally own and operate the business from Delaware.",
     ],
     reneQuote:
       "Through my years of travel, having the opportunity to see different cultures has been such a rewarding experience! The vacationing experience I’ve gotten and loved, I wanted to share with others. And through René’s Travel Agency I now have that tool!",

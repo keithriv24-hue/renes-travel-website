@@ -26,6 +26,8 @@ export function businessJsonLd() {
     "@type": "TravelAgency",
     "@id": BUSINESS_ID,
     name: siteConfig.business.name,
+    foundingDate: siteConfig.business.foundingYear,
+    foundingLocation: { "@type": "Place", name: siteConfig.business.formationState },
     alternateName: BIZ,
     slogan: siteConfig.business.tagline,
     url: `${BASE}/`,
@@ -92,7 +94,7 @@ export function buildRoutes() {
     path: "/about/",
     title: `About René Howell | ${BIZ}`,
     description:
-      "René’s Travel Agency was started for the love of travel. René Howell began as a group leader with Liberty Travel in 2006. CLIA, independent owner and travel agent based in Delaware.",
+      "René Howell established René’s Travel Agency, LLC in New Jersey in 2014 and now personally operates the business from Delaware. Travel experience since 2006.",
     jsonLd: [breadcrumbs([{ name: "About René", path: "/about/" }])],
     sitemap: { priority: "0.7", changefreq: "monthly" },
   });
