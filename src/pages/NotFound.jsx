@@ -7,7 +7,7 @@ export default function NotFound() {
     <section className="section">
       <div className="wrap-narrow">
         <p className="label" style={{ color: "var(--color-blue)" }}>Page not found</p>
-        <h1 className="h-page" style={{ marginTop: 16 }}>This page sailed without us.</h1>
+        <h1 className="h-page" style={{ marginTop: 16 }}>This page has sailed away.</h1>
         <p className="lede" style={{ marginTop: 24 }}>It may have moved when the site was updated. These will get you where you were going.</p>
         <div className="chiplinks" style={{ marginTop: 32 }}>
           <Link to="/">Home</Link>

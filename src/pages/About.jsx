@@ -37,7 +37,7 @@ export default function About() {
               {credentials.map((c) => <div key={c.title}><strong>{c.title}</strong>{c.detail}</div>)}
             </div>
             <p className="muted" style={{ marginTop: 28 }}>
-              She is also partnered with {alsoPartneredWith.slice(0, -1).join(", ")} and {alsoPartneredWith.at(-1)}.
+              I also work with {alsoPartneredWith.slice(0, -1).join(", ")} and {alsoPartneredWith.at(-1)}.
             </p>
           </div>
         </div>

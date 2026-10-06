@@ -9,7 +9,8 @@
  *   appear automatically (the sitemap is generated at build time).
  *
  * • Everything a visitor reads about René (history, credentials,
- *   testimonials, forms, privacy policy) is copied from her original site.
+ *   testimonials, forms, privacy policy) is based on her original site.
+ *   Agency copy reflects René as the sole owner, based in Delaware.
  *   Do not reword business facts here without René's approval.
  *
  * • Integrations are OFF until their IDs are filled in. An empty string
@@ -26,7 +27,8 @@ const siteConfig = {
     tagline: "Where your dream vacation becomes a reality!",
     // From the old site: "by land, sea, air or rail".
     scope: "By land, sea, air or rail",
-    state: "New Jersey",
+    state: "Delaware",
+    stateCode: "DE",
     // The old .htaccess redirected www → bare domain, so the bare domain is canonical.
     baseUrl: "https://renestravelagency.com",
     // Fill in when René confirms it. Rendered in schema.org data only when set.
@@ -77,7 +79,7 @@ const siteConfig = {
 
   credentials: [
     { title: "CLIA", detail: "Licensed with Cruise Lines International Association (CLIA), 2016" },
-    { title: "New Jersey", detail: "State of New Jersey registered business" },
+    { title: "Delaware", detail: "Based in Delaware, personally owned and operated by René Howell" },
     { title: "Certified", detail: "Penn Foster Career School Travel & Tourism Certificate" },
   ],
 
@@ -85,40 +87,40 @@ const siteConfig = {
   alsoPartneredWith: ["European Vacations", "Vax Vacations", "Gate 1 Travel", "Rail"],
 
   history: {
-    heading: "Our History",
+    heading: "My Story",
     paragraphs: [
-      "René’s Travel Agency was started for the love of travel. René Howell began her travel experience as a group leader with Liberty Travel in 2006, booking her first cruise on the cruise line Royal Caribbean’s The Explorer of the Seas for 32 people.",
-      "She continued to book cruises through Liberty Travel as the group leader every two years for a group of people who have sailed with her faithfully each time for the past 10 years.",
+      "I started René’s Travel Agency for the love of travel. My travel experience began as a group leader with Liberty Travel in 2006, when I booked my first cruise on Royal Caribbean’s Explorer of the Seas for 32 people.",
+      "I continued booking cruises through Liberty Travel every two years as the group leader for travelers who sailed with me faithfully over the next 10 years.",
     ],
     reneQuote:
       "Through my years of travel, having the opportunity to see different cultures has been such a rewarding experience! The vacationing experience I’ve gotten and loved, I wanted to share with others. And through René’s Travel Agency I now have that tool!",
   },
 
   vision: {
-    heading: "Our Vision",
-    lead: "Great service combined with great creativity is what we are all about.",
+    heading: "My Vision",
+    lead: "Great service and creative travel planning are at the heart of what I do.",
     paragraphs: [
-      "Our vision is to be YOUR preferred travel agency by land, sea or air, making your journey a lifetime experience. Our customers come first and we work to the highest operational standards in order to exceed their expectations. Personalized service that never stops working for you.",
-      "Embrace life by exploring the world. Whether you start small with a trip close to home or venture abroad to a far-off corner of the globe, we will help you discover the beauty of the world and joy of travel.",
+      "My vision is to be your go-to travel agent by land, sea or air, helping you create memories that last a lifetime. My clients come first, and I give each trip personal attention from the first conversation through the journey home.",
+      "Embrace life by exploring the world. Whether you start small with a trip close to home or venture abroad to a far-off corner of the globe, I will help you discover the beauty of the world and joy of travel.",
     ],
   },
 
   services: {
     paragraphs: [
-      "A one-stop enterprise, we offer a complete range of travel related services. Superior knowledge, efficient planning and the ability to anticipate and resolve potential problems along the way are the reasons our customers return.",
-      "René’s Travel Agency has the industry relationships to provide you with the best options, at the best prices, with the greatest added value to help you reach your final destination.",
-      "Cruises, Spas, Ski Holidays, All-Inclusive Resorts, Family Vacations, Luxury Escapes, Family & Class Reunions, Weddings and Honeymoons: these are only some of the many adventures we can help you plan. Our Travel Consultants have the professional expertise and the experience necessary to make your next vacation the unique and unforgettable experience you deserve.",
+      "As your independent travel agent, I offer a complete range of travel services. My knowledge, careful planning and personal support along the way are the reasons my clients return.",
+      "I have the industry relationships to provide you with the best options, at the best prices, with the greatest added value to help you reach your final destination.",
+      "Cruises, Spas, Ski Holidays, All-Inclusive Resorts, Family Vacations, Luxury Escapes, Family & Class Reunions, Weddings and Honeymoons: these are only some of the many adventures I can help you plan. I bring the professional expertise and experience needed to make your next vacation the unique and unforgettable experience you deserve.",
     ],
   },
 
   about: {
     intro:
-      "Travel is not about how you reach your destinations; it’s all about the memories you bring back with you. We are a fast growing travel agency, offering exciting destinations, great journeys and fascinating places. Welcome, come join the rest of our satisfied vacationers!",
+      "Travel is not about how you reach your destinations; it’s all about the memories you bring back with you. I’m René Howell, the owner and independent travel agent behind René’s Travel Agency in Delaware. When you book with me, you work directly with me to plan your next adventure.",
   },
 
   contactNote: {
     heading: "What is your ideal vacation getaway?",
-    body: "There’s no doubt you have thoughts and ideas about your vacation. No website contact form can convey the memories you want to create when you dream about your getaway. That is why this is just a brief form. It’s a chance to get the ball rolling and let us know that you have a journey in mind and are ready to start making plans.",
+    body: "There’s no doubt you have thoughts and ideas about your vacation. No website contact form can convey the memories you want to create when you dream about your getaway. That is why this is just a brief form. It’s a chance to get the ball rolling and let me know that you have a journey in mind and are ready to start making plans.",
     signoff: "I look forward to creating an amazing adventure together!",
   },
 

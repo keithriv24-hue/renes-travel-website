@@ -20,6 +20,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SOURCE=Path(sys.argv[1])
 RENDER=Path(sys.argv[2])
 OUT=ROOT/'public/pdf'
+ONLY=set(sys.argv[3:])  # Optional PDF paths to rebuild; omit to rebuild all.
 NAVY=HexColor('#062D50'); BLUE=HexColor('#075D9C'); PALE=HexColor('#E3F1F8'); INK=HexColor('#173B54')
 body=ParagraphStyle('body',fontName='AgencySans',fontSize=11,leading=16,textColor=INK,spaceAfter=10)
 heading=ParagraphStyle('heading',parent=body,fontName='AgencySansBold',fontSize=15,leading=20,textColor=BLUE,spaceBefore=12,spaceAfter=10)
@@ -61,6 +62,7 @@ def original(story,name):
   available=490 if i==0 else 630;scale=min(520/im.width,available/im.height);story.append(RLImage(buf,width=im.width*scale,height=im.height*scale))
 
 def save_form(name,label,story):
+ if ONLY and name not in ONLY:return
  original(story,name);dest=OUT/name;dest.parent.mkdir(parents=True,exist_ok=True)
  SimpleDocTemplate(str(dest),pagesize=(612,792),leftMargin=46,rightMargin=46,topMargin=92,bottomMargin=58,title=label,author="René's Travel Agency, LLC").build(story,onFirstPage=decorate,onLaterPages=decorate)
  r=PdfReader(dest);manifest.append({'path':'public/pdf/'+name,'title':label,'kind':'fillable form','pages':len(r.pages),'fields':len(r.get_fields() or {})})
@@ -68,69 +70,75 @@ def save_form(name,label,story):
 def start(label,instruction):
  s=[];p(s,label,title);p(s,instruction);return s
 
-s=start('Travel Booking Worksheet','Please write clearly or type your information. Booking Agency: René’s Travel Agency.')
-p(s,'The Transportation Security Administration (TSA) requires our customers to provide their full name, date of birth and gender when round-trip airline tickets are added to your vacation package.')
-fields(s,"Today's Date",'Travel Date','Trip Name','Hotel/Resort Name')
-h(s,'Travelers')
-for i in range(1,5):fields(s,f'Traveler {i}: Full Legal Name and Gender',f'Traveler {i}: Date of Birth')
-h(s,'Contact information');fields(s,'Address','City, State, Zip','Home Phone','Office Phone','Mobile Phone','Alternate Phone','E-Mail','Citizenship')
-h(s,'Travel arrangements');fields(s,'Passports Required: Yes / No','For whom')
-p(s,'Each Traveler - Unless you are traveling inside the United States.')
-fields(s,'Travel Insurance: Include / Decline')
-p(s,'Include - Click Here to Protect Your Vacation. Decline - (A signed decline waiver form will be required at booking if you opt out to purchase travel insurance)')
-s.append(Paragraph('<a href="http://www.travelguard.com/agentlink.asp?ta_arc=00438510&amp;pcode=PAA&amp;agencyemail=renes.travel@comcast.net" color="#075D9C">Click Here to Protect Your Vacation</a>',body))
-h(s,'Emergency contact');fields(s,'Name','Phone Number','Relationship to you','Special Request/Needs (Need to know ASAP)')
-fields(s,'Room Selection: Single / Double / Triple / Quad')
-p(s,'Room Selection: Circle 1: Single Person, Double Occupancy, Triple Occupancy, Quad Occupancy.')
-p(s,'Please email or fax form to: PO Box 83600 | Conyers, GA 30013 | 770-918-9284 fax | Renes.Travel@Comcast.Net | www.Renestravelagency.com',small)
-save_form('Travel_Booking_Worksheet.pdf','Travel Booking Worksheet',s)
+if not ONLY or 'Travel_Booking_Worksheet.pdf' in ONLY:
+ s=start('Travel Booking Worksheet','Please write clearly or type your information. Booking Agency: René’s Travel Agency.')
+ p(s,'The Transportation Security Administration (TSA) requires my clients to provide their full name, date of birth and gender when round-trip airline tickets are added to your vacation package.')
+ fields(s,"Today's Date",'Travel Date','Trip Name','Hotel/Resort Name')
+ h(s,'Travelers')
+ for i in range(1,5):fields(s,f'Traveler {i}: Full Legal Name and Gender',f'Traveler {i}: Date of Birth')
+ h(s,'Contact information');fields(s,'Address','City, State, Zip','Home Phone','Office Phone','Mobile Phone','Alternate Phone','E-Mail','Citizenship')
+ h(s,'Travel arrangements');fields(s,'Passports Required: Yes / No','For whom')
+ p(s,'Each Traveler - Unless you are traveling inside the United States.')
+ fields(s,'Travel Insurance: Include / Decline')
+ p(s,'Include - Click Here to Protect Your Vacation. Decline - (A signed decline waiver form will be required at booking if you opt out to purchase travel insurance)')
+ s.append(Paragraph('<a href="http://www.travelguard.com/agentlink.asp?ta_arc=00438510&amp;pcode=PAA&amp;agencyemail=renes.travel@comcast.net" color="#075D9C">Click Here to Protect Your Vacation</a>',body))
+ h(s,'Emergency contact');fields(s,'Name','Phone Number','Relationship to you','Special Request/Needs (Need to know ASAP)')
+ fields(s,'Room Selection: Single / Double / Triple / Quad')
+ p(s,'Room Selection: Circle 1: Single Person, Double Occupancy, Triple Occupancy, Quad Occupancy.')
+ p(s,'Contact René Howell in Delaware at (609) 304-1530 or renes.travel@comcast.net for current form return and mailing instructions. www.renestravelagency.com',small)
+ save_form('Travel_Booking_Worksheet.pdf','Travel Booking Worksheet',s)
 
-s=start('Cruise Registration Form','Complete attached CC/Check or Debit Card Authorization form for payments. Form Must Be signed by Each Participating Adult.')
-fields(s,'Name','DOB','Gender','Address','City','State','Zip','Home #','Cell #','Email')
-h(s,'Stateroom selection');fields(s,'Interior / Oceanview / Balcony / Suite')
-p(s,'PLEASE CHECK BOX TO INDICATE STATEROOM SELECTION: Interior Stateroom, Oceanview Stateroom, Balcony Stateroom, Suite. ALL FARES ARE BASED ON DOUBLE OCCUPANCY.')
-p(s,'I have read General Terms and Conditions set forth in this brochure and accept the risks therein.')
-fields(s,'Signature (sign by hand)','Date','Final payment due on or before')
-h(s,'General terms and conditions')
-text=(SOURCE/'Rene_Travel_Cruise_Info.txt').read_text();text=' '.join(text.split());term=text[text.index('TRAVEL DOCUMENTS'):text.index('Mail / Fax')]
-for part in re.split(r'(?=(?:TRAVEL DOCUMENTS|PAYMENTS|CANCELLATIONS|BAGGAGE|INSURANCE|RESPONSIBILITY):?)',term):
- if part.strip():p(s,part.strip())
-p(s,'Mail / Fax CC Authorization & Registration Form. Make checks payable to: René’s Travel Agency, LLC. P.O. Box 83600, Conyers, GA 30013. FAX (770) 918-9284. Renes.Travel@Comcast.Net. Visit us on our Website www.Renestravelagency.com.')
-p(s,'By signing this form you are agreeing with this policy.')
-save_form('Rene_Travel_Cruise_Info.pdf','Cruise Registration Form',s)
+if not ONLY or 'Rene_Travel_Cruise_Info.pdf' in ONLY:
+ s=start('Cruise Registration Form','Complete attached CC/Check or Debit Card Authorization form for payments. Form Must Be signed by Each Participating Adult.')
+ fields(s,'Name','DOB','Gender','Address','City','State','Zip','Home #','Cell #','Email')
+ h(s,'Stateroom selection');fields(s,'Interior / Oceanview / Balcony / Suite')
+ p(s,'PLEASE CHECK BOX TO INDICATE STATEROOM SELECTION: Interior Stateroom, Oceanview Stateroom, Balcony Stateroom, Suite. ALL FARES ARE BASED ON DOUBLE OCCUPANCY.')
+ p(s,'I have read General Terms and Conditions set forth in this brochure and accept the risks therein.')
+ fields(s,'Signature (sign by hand)','Date','Final payment due on or before')
+ h(s,'General terms and conditions')
+ text=(SOURCE/'Rene_Travel_Cruise_Info.txt').read_text();text=' '.join(text.split());term=text[text.index('TRAVEL DOCUMENTS'):text.index('Mail / Fax')]
+ term=term.replace('Rene’s Travel Agency and its agents act only as agents', 'René’s Travel Agency, operated by René Howell, acts only as a travel agent').replace('Rene’s Travel Agency and its agents shall', 'René’s Travel Agency shall')
+ for part in re.split(r'(?=(?:TRAVEL DOCUMENTS|PAYMENTS|CANCELLATIONS|BAGGAGE|INSURANCE|RESPONSIBILITY):?)',term):
+  if part.strip():p(s,part.strip())
+ p(s,'Make checks payable to: René’s Travel Agency, LLC. Contact René Howell in Delaware at (609) 304-1530 or renes.travel@comcast.net for current form return and mailing instructions. Visit my website at www.renestravelagency.com.')
+ p(s,'By signing this form you are agreeing with this policy.')
+ save_form('Rene_Travel_Cruise_Info.pdf','Cruise Registration Form',s)
 
-s=start('One-Time Credit Card Payment Authorization','Sign and complete this form to authorize René’s Travel Agency to make a one-time debit to your credit card listed below.')
-p(s,'By signing this form you give us permission to debit your account for the amount indicated on or after the indicated date. This is permission for a single transaction only, and does not provide authorization for any additional unrelated debits or credits to your account.')
-h(s,'Payment authorization');fields(s,'Full name','Amount','On or after (date)','Description of services')
-p(s,'I authorize René’s Travel Agency to charge my credit card account indicated below for the amount and on or after the date indicated above. This payment is for the description of services above.')
-h(s,'Billing information');fields(s,'Billing Address','City, State, Zip','Phone #','Email')
-h(s,'Card information');fields(s,'Account Type: Visa / MasterCard / AMEX / Discover','Cardholder Name','Account Number','Expiration Date')
-h(s,'Authorization and signature')
-text=' '.join((SOURCE/'Auth_Form-one-time-payment.txt').read_text().split());p(s,text[text.index('I authorize the above named business'):].replace('\t',' '))
-fields(s,'SIGNATURE (sign by hand)','DATE')
-save_form('Auth_Form-one-time-payment.pdf','One-Time Credit Card Payment Authorization',s)
+if not ONLY or 'Auth_Form-one-time-payment.pdf' in ONLY:
+ s=start('One-Time Credit Card Payment Authorization','Sign and complete this form to authorize René’s Travel Agency to make a one-time debit to your credit card listed below.')
+ p(s,'By signing this form you give René’s Travel Agency permission to debit your account for the amount indicated on or after the indicated date. This is permission for a single transaction only, and does not provide authorization for any additional unrelated debits or credits to your account.')
+ h(s,'Payment authorization');fields(s,'Full name','Amount','On or after (date)','Description of services')
+ p(s,'I authorize René’s Travel Agency to charge my credit card account indicated below for the amount and on or after the date indicated above. This payment is for the description of services above.')
+ h(s,'Billing information');fields(s,'Billing Address','City, State, Zip','Phone #','Email')
+ h(s,'Card information');fields(s,'Account Type: Visa / MasterCard / AMEX / Discover','Cardholder Name','Account Number','Expiration Date')
+ h(s,'Authorization and signature')
+ text=' '.join((SOURCE/'Auth_Form-one-time-payment.txt').read_text().split());p(s,text[text.index('I authorize the above named business'):].replace('\t',' '))
+ fields(s,'SIGNATURE (sign by hand)','DATE')
+ save_form('Auth_Form-one-time-payment.pdf','One-Time Credit Card Payment Authorization',s)
 
-s=start('Recurring Credit Card Payment Authorization','Schedule your payments to be automatically charged to your credit card. Just complete and sign this form.')
-h(s,'Here’s How Recurring Payments Work')
-text=' '.join((SOURCE/'Recurring_Auth_Form.txt').read_text().split());p(s,text[text.index('You authorize René'):text.index('Please complete')])
-h(s,'Payment schedule');fields(s,'Full name','Day or date of charge','Frequency','Description of services','Advance notice if charge exceeds ($)')
-p(s,'I authorize René’s Travel Agency to charge my credit card indicated below on the day or date of each frequency indicated above, for payment of the description of services. I understand that I will only receive advance notice of the charge if it exceeds the amount indicated above.')
-h(s,'Billing information');fields(s,'Billing Address','City, State, Zip','Phone #','Email')
-h(s,'Card information');fields(s,'Account Type: Visa / MasterCard / Amex / Discover','Cardholder Name','Account Number','Expiration Date','CVV')
-p(s,'CVV (3 digit number on back of Visa/MC, 4 digits on front of AMEX).',small)
-h(s,'Authorization and signature');p(s,text[text.index('I authorize the above named business'):]);fields(s,'SIGNATURE (sign by hand)','DATE')
-save_form('Recurring_Auth_Form.pdf','Recurring Credit Card Payment Authorization',s)
+if not ONLY or 'Recurring_Auth_Form.pdf' in ONLY:
+ s=start('Recurring Credit Card Payment Authorization','Schedule your payments to be automatically charged to your credit card. Just complete and sign this form.')
+ h(s,'Here’s How Recurring Payments Work')
+ text=' '.join((SOURCE/'Recurring_Auth_Form.txt').read_text().split());p(s,text[text.index('You authorize René'):text.index('Please complete')])
+ h(s,'Payment schedule');fields(s,'Full name','Day or date of charge','Frequency','Description of services','Advance notice if charge exceeds ($)')
+ p(s,'I authorize René’s Travel Agency to charge my credit card indicated below on the day or date of each frequency indicated above, for payment of the description of services. I understand that I will only receive advance notice of the charge if it exceeds the amount indicated above.')
+ h(s,'Billing information');fields(s,'Billing Address','City, State, Zip','Phone #','Email')
+ h(s,'Card information');fields(s,'Account Type: Visa / MasterCard / Amex / Discover','Cardholder Name','Account Number','Expiration Date','CVV')
+ p(s,'CVV (3 digit number on back of Visa/MC, 4 digits on front of AMEX).',small)
+ h(s,'Authorization and signature');p(s,text[text.index('I authorize the above named business'):]);fields(s,'SIGNATURE (sign by hand)','DATE')
+ save_form('Recurring_Auth_Form.pdf','Recurring Credit Card Payment Authorization',s)
 
-s=start('Online Check-In Information','René’s Travel Agency')
-h(s,'Traveler information');fields(s,'First Name','Middle Name','Last Name','Crown Anchor #','Country of Birthplace','Country','Gender: Male / Female','Marital Status','DOB')
-h(s,'Residence');fields(s,'Country','Address (include apartment #)','City','State','Zip Code','Primary Phone #','Cell #','Email Address')
-h(s,'Contact numbers');fields(s,'Contact number of traveler','Emergency Contact Person','Phone #')
-h(s,'Document type');fields(s,'Passport or Passport Card','Passport or Passport Card #','Expiration Date','Birth Certificate: Birth Place','Birth Certificate: State')
-h(s,'Government issue ID');fields(s,'Driver’s License / Military ID / Student ID / State ID','State Government ID Issued from')
-p(s,'IMPORTANT NOTE: IF YOU’RE MARRIED OR HAVE BEEN MARRIED AND YOU’RE USING YOUR BIRTH CERTIFCATE. YOU MUST ALSO PROVIDE YOUR MARRIAGE CERTITICATE AT THE PORT WHEN CHECKING IN.')
-fields(s,'On Board Expense Account: Cash / Credit Card / Travelers Checks')
-p(s,'ON BOARD EXPENSE ACCOUNT: CASH, CREDIT CARD OR TRAVELERS CHECKS')
-save_form('ON_LINE_CHECK_IN_FORM.pdf','Online Check-In Information',s)
+if not ONLY or 'ON_LINE_CHECK_IN_FORM.pdf' in ONLY:
+ s=start('Online Check-In Information','René’s Travel Agency')
+ h(s,'Traveler information');fields(s,'First Name','Middle Name','Last Name','Crown Anchor #','Country of Birthplace','Country','Gender: Male / Female','Marital Status','DOB')
+ h(s,'Residence');fields(s,'Country','Address (include apartment #)','City','State','Zip Code','Primary Phone #','Cell #','Email Address')
+ h(s,'Contact numbers');fields(s,'Contact number of traveler','Emergency Contact Person','Phone #')
+ h(s,'Document type');fields(s,'Passport or Passport Card','Passport or Passport Card #','Expiration Date','Birth Certificate: Birth Place','Birth Certificate: State')
+ h(s,'Government issue ID');fields(s,'Driver’s License / Military ID / Student ID / State ID','State Government ID Issued from')
+ p(s,'IMPORTANT NOTE: IF YOU’RE MARRIED OR HAVE BEEN MARRIED AND YOU’RE USING YOUR BIRTH CERTIFCATE. YOU MUST ALSO PROVIDE YOUR MARRIAGE CERTITICATE AT THE PORT WHEN CHECKING IN.')
+ fields(s,'On Board Expense Account: Cash / Credit Card / Travelers Checks')
+ p(s,'ON BOARD EXPENSE ACCOUNT: CASH, CREDIT CARD OR TRAVELERS CHECKS')
+ save_form('ON_LINE_CHECK_IN_FORM.pdf','Online Check-In Information',s)
 
 # Supplier pages: enlarged panels preserve tables, images and exact printed terms.
 # Every source page is also included whole, so nothing is lost at a panel boundary.
@@ -167,6 +175,7 @@ parks=[
  ('Grand Canyon Explorer','Albuquerque > Santa Fe > Williams > Grand Canyon > Flagstaff','9 Days from $1,499',['Walking tour of Santa Fe','One-way aboard Grand Canyon Railway to the Grand Canyon','Grand Canyon Motorcoach Rim tour with lunch','Guided jeep tour in Sedona']),
  ('Niagara Falls Getaway','Niagara Falls','3 Days from $129',['2 nights’ hotel accommodations','Skylon Tower Observatory Admission','Choice of Voyage to the Falls Boat Ride, Journey Behind the Falls, Niagara’s Fury, OR IMAX Theatre Niagara Falls - Movie & Museum Admission'])]
 for name,label in names.items():
+ if ONLY and name not in ONLY:continue
  if name.startswith('amtrak/'):
   story=start(label,'Amtrak Vacations | Original itineraries and printed prices retained.')
   p(story,'Historical document: ask René for current options.',small)
@@ -219,5 +228,9 @@ for name,label in names.items():
   n+=1;c.setPageSize((612,792));frame(c,label,n);key=f'original-{i}';c.bookmarkPage(key);c.addOutlineEntry(f'Original source page {i+1}',key,0)
   c.setFillColor(BLUE);c.setFont('AgencySansBold',10);c.drawString(36,708,f'ORIGINAL SOURCE PAGE {i+1}');im=Image.open(RENDER/(Path(name).stem+f'-{i+1}.png'));place(c,im,(36,55,540,630));c.showPage()
  c.save();manifest.append({'path':'public/pdf/'+name,'title':label,'kind':'enlarged reading edition with original pages','pages':len(PdfReader(dest).pages),'fields':0})
+if ONLY:
+ previous=json.loads((ROOT/'docs/DOCUMENT_REFRESH.json').read_text())
+ refreshed={item['path']:item for item in manifest}
+ manifest=[refreshed.get(item['path'],item) for item in previous]
 (ROOT/'docs/DOCUMENT_REFRESH.json').write_text(json.dumps(manifest,indent=2))
 print(json.dumps(manifest,indent=2))

@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="wrap">
           <div className="foot-brand">
             <p className="r">René’s Travel Agency</p>
-            <p>{business.tagline} Personal travel planning by {business.owner}, {business.state}.</p>
+            <p>{business.tagline} Personal travel planning by {business.owner}, owner and independent travel agent based in {business.state}.</p>
           </div>
           <div className="foot-col">
             <h2>Trips</h2>

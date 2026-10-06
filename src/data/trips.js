@@ -16,7 +16,7 @@ export const trips = [
     slug: "ocean-cruises",
     name: "Ocean cruises",
     h1: "Ocean cruises, planned by René",
-    seoTitle: "Cruise Travel Agent in New Jersey | René’s Travel Agency",
+    seoTitle: "Cruise Travel Agent in Delaware | René’s Travel Agency",
     description:
       "Caribbean, Bahamas, Mexico, Alaska and Europe. René Howell has booked cruises since 2006 with Royal Caribbean, Carnival, Celebrity, Princess, Norwegian and more.",
     where: "Caribbean, Bahamas, Mexico, Alaska, Europe",
@@ -95,7 +95,7 @@ export const trips = [
     h1: "Weddings and honeymoons",
     seoTitle: "Honeymoon and Destination Wedding Travel | René’s Travel Agency",
     description:
-      "Honeymoons and destination wedding travel: resorts, cruises and luxury hotels. Planned by René Howell, René’s Travel Agency, New Jersey.",
+      "Honeymoons and destination wedding travel: resorts, cruises and luxury hotels. Planned by René Howell, René’s Travel Agency, Delaware.",
     where: "Resorts, cruises, luxury hotels",
     intro: [
       "A wedding or honeymoon trip should feel effortless for the two of you, and for any guests traveling to celebrate with you.",
@@ -139,7 +139,7 @@ export const trips = [
     name: "Ski holidays",
     h1: "Ski holidays",
     seoTitle: "Ski Vacations | René’s Travel Agency",
-    description: "Ski holidays and winter getaways, packaged and booked by René Howell, René’s Travel Agency, New Jersey.",
+    description: "Ski holidays and winter getaways, packaged and booked by René Howell, René’s Travel Agency, Delaware.",
     where: "Winter getaways",
     intro: [
       "A ski trip has a lot to line up: flights, lodging near the lifts and the right dates for the snow.",

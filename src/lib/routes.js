@@ -19,7 +19,7 @@ const BUSINESS_ID = `${BASE}/#business`;
 const abs = (path) => `${BASE}${path}`;
 
 export function businessJsonLd() {
-  const address = { "@type": "PostalAddress", addressRegion: "NJ", addressCountry: "US" };
+  const address = { "@type": "PostalAddress", addressRegion: siteConfig.business.stateCode, addressCountry: "US" };
   if (siteConfig.business.town) address.addressLocality = siteConfig.business.town;
   const entity = {
     "@context": "https://schema.org",
@@ -78,9 +78,9 @@ export function buildRoutes() {
 
   add({
     path: "/",
-    title: "René’s Travel Agency | Cruises, Group Trips & Vacations in New Jersey",
+    title: "René’s Travel Agency | Cruises, Group Trips & Vacations in Delaware",
     description:
-      "René Howell plans cruises, river cruises, rail vacations, all-inclusive resorts, reunions, weddings and honeymoons. Group cruise leader since 2006. Call (609) 304-1336.",
+      "René Howell plans cruises, river cruises, rail vacations, all-inclusive resorts, reunions, weddings and honeymoons. Group cruise leader since 2006. Call (609) 304-1530.",
     jsonLd: [
       businessJsonLd(),
       { "@context": "https://schema.org", "@type": "WebSite", name: BIZ, url: `${BASE}/` },
@@ -92,7 +92,7 @@ export function buildRoutes() {
     path: "/about/",
     title: `About René Howell | ${BIZ}`,
     description:
-      "René’s Travel Agency was started for the love of travel. René Howell began as a group leader with Liberty Travel in 2006. CLIA, New Jersey registered business.",
+      "René’s Travel Agency was started for the love of travel. René Howell began as a group leader with Liberty Travel in 2006. CLIA, independent owner and travel agent based in Delaware.",
     jsonLd: [breadcrumbs([{ name: "About René", path: "/about/" }])],
     sitemap: { priority: "0.7", changefreq: "monthly" },
   });
@@ -139,7 +139,7 @@ export function buildRoutes() {
     add({
       path,
       title: `${p.name} | Book with ${BIZ}`,
-      description: `${p.summary.split(". ")[0]}. ${partnerTypes[p.type]} booked by René Howell, René’s Travel Agency, New Jersey.`.slice(0, 300),
+      description: `${p.summary.split(". ")[0]}. ${partnerTypes[p.type]} booked by René Howell, René’s Travel Agency, Delaware.`.slice(0, 300),
       jsonLd: [breadcrumbs([{ name: "Partners", path: "/partners/" }, { name: p.name, path }])],
       sitemap: { priority: "0.6", changefreq: "monthly" },
     });
@@ -156,7 +156,7 @@ export function buildRoutes() {
     path: "/plan-my-trip/",
     title: `Plan My Trip | Contact René Howell | ${BIZ}`,
     description:
-      "Tell René where you want to go. Call or text (609) 304-1336, email renes.travel@comcast.net, or send the short trip form to get the ball rolling.",
+      "Tell René where you want to go. Call or text (609) 304-1530, email renes.travel@comcast.net, or send the short trip form to get the ball rolling.",
     jsonLd: [breadcrumbs([{ name: "Plan my trip", path: "/plan-my-trip/" }])],
     sitemap: { priority: "0.8", changefreq: "monthly" },
   });

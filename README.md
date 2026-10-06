@@ -1,6 +1,6 @@
 # René’s Travel Agency website
 
-The website for **René’s Travel Agency, LLC** (René Howell, New Jersey): renestravelagency.com.
+The website for **René’s Travel Agency, LLC** (René Howell, Delaware): renestravelagency.com.
 
 It uses the Haul Yeah Moving site (`keithriv24-hue/haul-yeah-website`) as its pattern. The Haul Yeah repo was only used as a reference and was not changed. The design merges homepage concepts A (editorial magazine) and C (René’s personal voice), with cobalt blue as the one accent color.
 
